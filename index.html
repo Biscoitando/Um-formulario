@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criador de Currículo</title>
+    <style>
+        .field {
+            margin-bottom: 10px;
+        }
+
+        .experience {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Criador de Currículo</h1>
+    <form method="POST" action="gerar_curriculo.php">
+        <div class="field">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="field">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required>
+        </div>
+        <!-- Adicione mais campos aqui para outros dados pessoais -->
+
+        <div class="experience">
+            <h2>Experiências Profissionais</h2>
+            <div id="experiencias_container">
+                <!-- Os campos de experiência serão adicionados aqui dinamicamente -->
+            </div>
+            <button type="button" id="adicionar_experiencia">+</button>
+        </div>
+
+        <!-- Adicione mais seções, como referências pessoais, se necessário -->
+
+        <button type="submit">Gerar Currículo</button>
+    </form>
+
+    <script>
+        // JavaScript para adicionar campos de experiência dinamicamente
+        document.getElementById('adicionar_experiencia').addEventListener('click', function() {
+            var container = document.getElementById('experiencias_container');
+            var novaExperiencia = document.createElement('div');
+            novaExperiencia.innerHTML = 
+                <label>Experiência:</label>
+                <input type="text" name="experiencia[]" required>
+            ;
+            container.appendChild(novaExperiencia);
+        });
+    </script>
+</body>
+</html>
